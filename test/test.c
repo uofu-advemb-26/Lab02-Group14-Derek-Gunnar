@@ -8,12 +8,14 @@ void setUp(void) {}
 
 void tearDown(void) {}
 
+// We assert x is equivalent to one else return a failure
 void test_variable_assignment()
 {
     int x = 1;
     TEST_ASSERT_TRUE_MESSAGE(x == 1,"Variable assignment failed.");
 }
 
+// We assert that division works as expected
 void test_multiplication(void)
 {
     int x = 30;
