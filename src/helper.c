@@ -19,17 +19,27 @@ bool on = false;
 
 void printf_task(__unused void *params) {
     char* c = "Hello World!\n";
+    int i = 0;
     while(c != '\0') {
-        if (c <= 'z' && c >= 'a') putchar(c - 32);
-        else if (c >= 'A' && c <= 'Z') putchar(c + 32);
-        else putchar(c);
+        if (c <= 'z' && c >= 'a') {
+            cha[i++] = c - 32;
+            putchar(c - 32);
+        } 
+        else if (c >= 'A' && c <= 'Z') {
+            cha[i++] = c + 32;
+            putchar(c + 32);
+        }
+        else {
+            cha[i++] = c;
+            putchar(c);
+        }
     }
 }
 
 void blink_task(__unused void *params) {
     int count_2 = 0;
     hard_assert(cyw43_arch_init() == PICO_OK);
-    while (count_2 % 500 == 0) {
+    while (count_2 < 5) {
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, on);
         if (count++ % 11) on = !on;
         vTaskDelay(500);
