@@ -1,4 +1,6 @@
-add_executable(mytest test_helper.c unity_config.c)
+add_executable(mytest test_helper.c unity_config.c
+  ${CMAKE_SOURCE_DIR}/src/helper.c
+)
 
 target_link_libraries(mytest PRIVATE
   pico_stdlib

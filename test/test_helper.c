@@ -5,7 +5,7 @@
 #include "unity_config.h"
 #include "helper.h"
 
-extern char cha[100];
+
 void setUp(void) {
     cha[0] = '\0';
 }
@@ -25,7 +25,8 @@ void test_array_check(void)
 void test_printf_task(void)
 {
     printf_task(NULL);
-    TEST_ASSERT_TRUE_MESSAGE(cha[0] == 'H', "printf_task test FAILED");
+    bool result = (cha[0] == 'H') && (cha[1] == 'E') && (cha[2] == 'L') && (cha[3] == 'L') && (cha[4] == 'O');
+    TEST_ASSERT_TRUE_MESSAGE(result, "printf_task test FAILED");
 }
 
 void test_blink_task(void)
