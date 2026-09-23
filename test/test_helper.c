@@ -4,6 +4,8 @@
 #include <unity.h>
 #include "unity_config.h"
 #include "helper.h"
+#include "pico/cyw43_arch.h"
+#include <stdlib.h>
 
 
 void setUp(void) {
