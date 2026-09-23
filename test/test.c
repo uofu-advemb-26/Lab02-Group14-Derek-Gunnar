@@ -8,18 +8,30 @@ void setUp(void) {}
 
 void tearDown(void) {}
 
+// We assert x is equivalent to one else return a failure
 void test_variable_assignment()
 {
     int x = 1;
     TEST_ASSERT_TRUE_MESSAGE(x == 1,"Variable assignment failed.");
 }
 
+// We assert that division works as expected
 void test_multiplication(void)
 {
     int x = 30;
     int y = 6;
     int z = x / y;
     TEST_ASSERT_TRUE_MESSAGE(z == 5, "Multiplication of two integers returned incorrect value.");
+}
+
+void test_array_check(void)
+{
+    int* x = malloc(sizeof(int)*2);
+    x[0] = 1;
+    x[1] = 2;
+    int z = x[0] + x[1];
+    TEST_ASSERT_TRUE_MESSAGE(z == 3, "array check failed.");
+    free(x);
 }
 
 int main (void)
@@ -31,6 +43,7 @@ int main (void)
         UNITY_BEGIN();
         RUN_TEST(test_variable_assignment);
         RUN_TEST(test_multiplication);
+        RUN_TEST(test_array_check);
         sleep_ms(5000);
         UNITY_END();
     }
